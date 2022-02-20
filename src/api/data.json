@@ -1,11 +1,5 @@
 {
     "enrollees": [
-        {
-            "id": 1,
-            "name": "emirhan güleroğlu",
-            "username": "emir",
-            "email": "emirhan@hotmail.com",
-            "password": "5445"
-        }
+        
     ]
 }
