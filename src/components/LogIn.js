@@ -1,6 +1,9 @@
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 
 function LogIn() {
+    const { userId } = useParams;
+    console.log(userId);
+
     return (
         <>
             <h2 className="position-absolute top-0 mt-4 start-50 translate-middle">Log-In</h2>
