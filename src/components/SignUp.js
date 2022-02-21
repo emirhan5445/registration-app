@@ -42,7 +42,7 @@ function SignUp() {
                                 name="formEmail" />
                         </div>
                     </div>
-                    <input type="submit" className="btn btn-danger btn-block" value="Add Movie" />
+                    <input type="submit" className="btn btn-danger btn-block" value="Sign Up" />
                 </form>
             </div>
         </>
