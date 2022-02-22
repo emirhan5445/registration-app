@@ -9,8 +9,8 @@ function SignUp() {
     const handleFormSubmit = e => {
         e.preventDefault();
         const newRegistered = serialize(e.target, { hash: true });
-        const { formUserName, formPassword, formEmail } = newRegistered;
-        addPerson(formUserName, formPassword, formEmail);
+        const { formUserName, formPassword } = newRegistered;
+        addPerson(formUserName, formPassword);
     };
 
     return (
@@ -33,16 +33,16 @@ function SignUp() {
                                 name="formPassword" />
                         </div>
                     </div>
-                    <div className="form-row">
+                    {/* <div className="form-row">
                         <div className="form-group col-md-12">
                             <label htmlFor="inputImage">E-Mail</label>
                             <input
                                 type="text"
                                 className="form-control"
-                                name="formEmail" />
+                                name" />
                         </div>
-                    </div>
-                    <input type="submit" className="btn btn-danger btn-block" value="Sign Up" />
+                    </div> */}
+                    <input type="submit" className="btn btn-danger btn-block m-5" value="Sign Up" />
                 </form>
             </div>
         </>

@@ -4,13 +4,14 @@ import { useContext } from 'react';
 import { EnrolleesContext } from '../Contexts/EnrolleesContext';
 
 function LogIn() {
-    const { setLogInData, checkingDatas } = useContext(EnrolleesContext);
+    const { setLogInData, setTrack, checkDatas } = useContext(EnrolleesContext);
 
     const handleFormSubmit = e => {
         e.preventDefault();
         const formData = serialize(e.target, { hash: true });
         const { formUserName, formPassword } = formData;
         setLogInData({ formUserName, formPassword });
+        setTrack('done');
     };
 
     return (
@@ -20,7 +21,7 @@ function LogIn() {
                 <form className="mt-5" onSubmit={handleFormSubmit}>
                     <div className="form-row">
                         <div className="form-group col-md-10">
-                            <label htmlFor="inputName">Username or E-Mail</label>
+                            <label htmlFor="inputName">Username</label>
                             <input type="text"
                                 className="form-control"
                                 name="formUserName" />
@@ -33,13 +34,31 @@ function LogIn() {
                                 name="formPassword" />
                         </div>
                     </div>
-                    <Link to="/Submitted"><input type="submit" className="btn btn-danger btn-block" value="Log In" onClick={checkingDatas} /></Link>
-
+                    <input type="submit" className="btn btn-danger btn-block m-5" value="Log In" />
+                    {
+                        (checkDatas === true) ?
+                            <Link to='/SuccessPage' style={{ textDecoration: 'none' }}>
+                                <div className="alert alert-success d-flex align-items-center m-5" role="alert">
+                                    <svg className="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Success:"></svg>
+                                    <div>
+                                        You have logged in successfuly. Click to going to success page.
+                                    </div>
+                                </div>
+                            </Link> :
+                            null
+                    }
+                    {
+                        (checkDatas === false) ?
+                                <div className="alert alert-danger d-flex align-items-center" role="alert">
+                                    <svg className="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Danger:"></svg>
+                                    <div>
+                                        Your datas does not match. Please check them.
+                                    </div>
+                                </div> :
+                            null
+                    }
                 </form>
-
             </div>
-            {/* button  useNavigate to go log in page directly   button   */}
-
         </>
     );
 }
